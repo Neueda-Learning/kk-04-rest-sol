@@ -23,5 +23,15 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
 
+  kk-04-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: kk-04-frontend
+    depends_on:
+      - kk-04-rest
+    ports:
+      - "3000:80"
+
 volumes:
   mysql-data:
